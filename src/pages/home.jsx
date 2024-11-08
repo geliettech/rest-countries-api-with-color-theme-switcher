@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../App.module.css";
 import { Link } from "react-router-dom";
+import countImg from "../assets/desktop-design-detail-dark.jpg";
 
 const Home = () => {
   return (
@@ -26,19 +27,101 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.countries}>
-        <Link to="/detail">
-          <img src="" alt="country img" />
-          <h3>Germany</h3>
-          <p>
-            <strong>Population</strong>:<span></span>
-          </p>
-          <p>
-            <strong>Region</strong>:<span></span>
-          </p>
-          <p>
-            <strong>Capital</strong>:<span></span>
-          </p>
-        </Link>
+        <div className={styles.country}>
+          <Link to="/detail">
+            <img
+              src={countImg}
+              alt="country flag"
+              className={styles.country_flag}
+            />
+            <h3>Germany</h3>
+            <p>
+              <strong>Population</strong>:<span>81,770,900</span>
+            </p>
+            <p>
+              <strong>Region</strong>:<span>Europe</span>
+            </p>
+            <p>
+              <strong>Capital</strong>:<span>Berlin</span>
+            </p>
+          </Link>
+        </div>
+        <div className={styles.country}>
+          <Link to="/detail">
+            <img
+              src={countImg}
+              alt="country flag"
+              className={styles.country_flag}
+            />
+            <h3>Germany</h3>
+            <p>
+              <strong>Population</strong>:<span>81,770,900</span>
+            </p>
+            <p>
+              <strong>Region</strong>:<span>Europe</span>
+            </p>
+            <p>
+              <strong>Capital</strong>:<span>Berlin</span>
+            </p>
+          </Link>
+        </div>
+        <div className={styles.country}>
+          <Link to="/detail">
+            <img
+              src={countImg}
+              alt="country flag"
+              className={styles.country_flag}
+            />
+            <h3>Germany</h3>
+            <p>
+              <strong>Population</strong>:<span>81,770,900</span>
+            </p>
+            <p>
+              <strong>Region</strong>:<span>Europe</span>
+            </p>
+            <p>
+              <strong>Capital</strong>:<span>Berlin</span>
+            </p>
+          </Link>
+        </div>
+        <div className={styles.country}>
+          <Link to="/detail">
+            <img
+              src={countImg}
+              alt="country flag"
+              className={styles.country_flag}
+            />
+            <h3>Germany</h3>
+            <p>
+              <strong>Population</strong>:<span>81,770,900</span>
+            </p>
+            <p>
+              <strong>Region</strong>:<span>Europe</span>
+            </p>
+            <p>
+              <strong>Capital</strong>:<span>Berlin</span>
+            </p>
+          </Link>
+        </div>
+        <div className={styles.country}>
+          <Link to="/detail">
+            <img
+              src={countImg}
+              alt="country flag"
+              className={styles.country_flag}
+            />
+            <h3>Germany</h3>
+            <p>
+              <strong>Population</strong>:<span>81,770,900</span>
+            </p>
+            <p>
+              <strong>Region</strong>:<span>Europe</span>
+            </p>
+            <p>
+              <strong>Capital</strong>:<span>Berlin</span>
+            </p>
+          </Link>
+        </div>
       </div>
     </div>
   );

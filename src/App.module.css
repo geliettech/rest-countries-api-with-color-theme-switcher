@@ -9,6 +9,7 @@ html {
 /* styles for the app */
 .App{
   max-width: 960px;
+  width: 90%;
   margin: 0 auto;
 }
 /* style for header */
@@ -23,6 +24,30 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+.countries{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 28px;
+  margin: 32px 0;
+}
+.country_flag{
+  width: 220px;
+  height: 100px;
+}
+/* styles for detail page */
+.country_details{
+  margin: 32px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 18px;
+}
+.details{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 /* style for the footer */
 .footer{
