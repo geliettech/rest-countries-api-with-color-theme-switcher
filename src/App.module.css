@@ -27,15 +27,11 @@ html {
   flex-wrap: wrap;
 }
 .countries{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 28px;
+  gap: 28px;
   margin: 32px 0;
-}
-.country_flag{
-  width: 220px;
-  height: 100px;
 }
 /* styles for detail page */
 .country_details{
