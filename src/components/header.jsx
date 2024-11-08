@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../App.module.css";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IoMoonOutline } from "react-icons/io5";
 
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
       <div className="darkmode">
         <span>
           {/* <i class="fa fa-moon-o" aria-hidden="true"></i> */}
-          <FontAwesomeIcon icon="check-square" />
+          Your <FontAwesomeIcon icon="coffee" /> is hot and ready!
         </span>
         <span>darkmode</span>
       </div>
