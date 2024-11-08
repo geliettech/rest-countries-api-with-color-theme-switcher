@@ -1,15 +1,30 @@
 
+/* global style */
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* styles for the app */
 .App{
   max-width: 960px;
   margin: 0 auto;
 }
+/* style for header */
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* style for home page */
 .search_dropdown{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* style for the footer */
+.footer{
+  text-align: center;
 }

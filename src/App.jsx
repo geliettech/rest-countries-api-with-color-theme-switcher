@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./App.module.css";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Detail from "./pages/detail";
 import Layout from "./components/layout";
@@ -8,10 +8,12 @@ import Layout from "./components/layout";
 const App = () => {
   return (
     <Layout className={styles.App}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/detail" element={<Detail />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
+        </Routes>
+      </BrowserRouter>
     </Layout>
   );
 };

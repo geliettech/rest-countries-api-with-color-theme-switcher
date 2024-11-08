@@ -26,7 +26,19 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.countries}>
-        <Link to="/detail">countries</Link>
+        <Link to="/detail">
+          <img src="" alt="country img" />
+          <h3>Germany</h3>
+          <p>
+            <strong>Population</strong>:<span></span>
+          </p>
+          <p>
+            <strong>Region</strong>:<span></span>
+          </p>
+          <p>
+            <strong>Capital</strong>:<span></span>
+          </p>
+        </Link>
       </div>
     </div>
   );
