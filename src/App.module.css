@@ -1,0 +1,15 @@
+
+.App{
+  max-width: 960px;
+  margin: 0 auto;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search_dropdown{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
