@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Detail = () => {
   return (
     <div>
-      <Link to="/">back</Link>
+      <Link to="/"><FontAwesomeIcon icon={faArrowLeft}/>back</Link>
       <div>
         <img src="" alt="" />
         <div>
