@@ -5,16 +5,27 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = () => {
+  // State variables and functions declaration
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // filtering of the countries array based on the searchTerm state variable.
+  const filteredCountries = countries.filter((filteredCountry) => {
+    if (searchTerm === "") {
+      return filteredCountry.name;
+    }
+    // return filteredCountry.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return filteredCountry.name.toLowerCase().includes(searchTerm);
+  });
 
   useEffect(() => {
     // Make a GET request to fetch movie data from the API
     axios
       .get("../../data.json")
       .then((response) => {
-        // On successful response, update movies state and reset error
+        // On successful response, update countries state and reset error
         setCountries(response.data);
         console.log(response.data);
         setError(null);
@@ -42,13 +53,15 @@ const Home = () => {
             type="search"
             name=""
             id=""
-            placeholder="Search a for country"
-          />
+            placeholder="Search a for country" onChange={(event) => setSearchTerm(event.target.value)}
+            value={searchTerm} />
         </div>
+        {/* // - Filter countries by region */}
         <div className={styles.dropdown}>
           <select name="regions" id="region-select">
             <option value="">Filter by Region</option>
             <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
@@ -57,7 +70,7 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.countries}>
-        {countries.map((country, index) => (
+        {filteredCountries.map((country, index) => (
           <div className={styles.country} key={index}>
             <Link to={`/country/${index}`}>
               <img src={country.flags.png} alt="country flag" />
@@ -68,7 +81,7 @@ const Home = () => {
               <p>
                 <strong>Region</strong>:<span>{country.region}</span>
               </p>
-              <p>                          
+              <p>
                 <strong>Capital</strong>:<span>{country.capital}</span>
               </p>
             </Link>
