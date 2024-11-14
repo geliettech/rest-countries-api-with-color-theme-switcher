@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "../App.module.css";
 import axios from "axios";
+import MyApp from "../components/layout";
 
 const CountryDetails = () => {
   const { numericCode } = useParams();
@@ -16,7 +17,9 @@ const CountryDetails = () => {
     axios
       .get("../../data.json") // Make sure this path is correct
       .then((response) => {
-        const countryData = response.data.find((c) => c.numericCode === numericCode);
+        const countryData = response.data.find(
+          (c) => c.numericCode === numericCode
+        );
         setCountry(countryData);
 
         if (countryData && countryData.borders) {
@@ -39,12 +42,8 @@ const CountryDetails = () => {
     return <p>Loading country details...</p>;
   }
 
-  if (!country) {
-    return <p>Country not found.</p>;
-  }
-
   return (
-    <div>
+    <MyApp>
       <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} /> back
       </Link>
@@ -54,52 +53,58 @@ const CountryDetails = () => {
           <h3>{country.name}</h3>
           <div className={styles.details}>
             <p>
-              <strong>Native Name</strong>: <span>{country.nativeName}</span>
+              <strong>Native Name</strong>:&nbsp;
+              <span>{country.nativeName}</span>
             </p>
             <p>
-              <strong>Population</strong>: <span>{country.population}</span>
+              <strong>Population</strong>:&nbsp;
+              <span>{country.population}</span>
             </p>
             <p>
-              <strong>Region</strong>: <span>{country.region}</span>
+              <strong>Region</strong>:&nbsp;<span>{country.region}</span>
             </p>
             <p>
-              <strong>Sub Region</strong>: <span>{country.subregion}</span>
+              <strong>Sub Region</strong>:&nbsp;<span>{country.subregion}</span>
             </p>
             <p>
-              <strong>Capital</strong>: <span>{country.capital}</span>
+              <strong>Capital</strong>:&nbsp;<span>{country.capital}</span>
             </p>
             <p>
-              <strong>Top Level Domain</strong>: <span>{country.topLevelDomain}</span>
+              <strong>Top Level Domain</strong>:&nbsp;
+              <span>{country.topLevelDomain}</span>
             </p>
             <p>
-              <strong>Currencies</strong>: <span>{country.currencies.map((currency) => currency.name).join(", ")}</span>
+              <strong>Currencies</strong>:&nbsp;
+              <span>
+                {country.currencies.map((currency) => currency.name).join(", ")}
+              </span>
             </p>
             <p>
-              <strong>Languages</strong>: <span>{country.languages.map((language) => language.name).join(", ")}</span>
+              <strong>Languages</strong>:&nbsp;
+              <span>
+                {country.languages.map((language) => language.name).join(", ")}
+              </span>
             </p>
           </div>
           <div>
-            <strong>Border Countries</strong>:
+            <strong>Border Countries</strong>:&nbsp;
             <span>
-              {borderCountries.length > 0 ? (
-                borderCountries.map((borderCountry) => (
-                  <Link 
-                    to={`/country/${borderCountry.numericCode}`} // Adjust the path if necessary
-                    key={borderCountry.alpha3Code}
-                    className={styles.border_link}
-                  >
-                    <div> {borderCountry.name}</div>
-                   
-                  </Link>
-                ))
-              ) : (
-                "None"
-              )}
+              {borderCountries.length > 0
+                ? borderCountries.map((borderCountry) => (
+                    <Link
+                      to={`/country/${borderCountry.numericCode}`} // Adjust the path if necessary
+                      key={borderCountry.alpha3Code}
+                      className={styles.border_link}
+                    >
+                      <div> {borderCountry.name}</div>
+                    </Link>
+                  ))
+                : "None"}
             </span>
           </div>
         </div>
       </div>
-    </div>
+    </MyApp>
   );
 };
 

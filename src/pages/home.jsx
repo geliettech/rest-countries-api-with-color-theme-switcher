@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../App.module.css";
 import { Link } from "react-router-dom";
+import MyApp from "../components/layout";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -41,7 +43,7 @@ const Home = () => {
   }
 
   return (
-    <div className={styles.home}>
+    <MyApp className={styles.home}>
       <div className={styles.searchInput_selectOption}>
         <input
           type="search"
@@ -70,26 +72,36 @@ const Home = () => {
 
       <div className={styles.countries}>
         {filteredCountries.map((country) => (
-          <Link
-            to={`/country/${country.numericCode}`}
-            className={styles.country}
-            key={country.numericCode}
-          >
-            <img src={country.flags.png} alt="country flag" />
-            <h3>{country.name}</h3>
-            <p>
-              <strong>Population</strong>:<span>{country.population}</span>
-            </p>
-            <p>
-              <strong>Region</strong>:<span>{country.region}</span>
-            </p>
-            <p>
-              <strong>Capital</strong>:<span>{country.capital}</span>
-            </p>
-          </Link>
+          <Card sx={{ width: "100%", borderRadius: 3, padding: 1 }}>
+            <CardContent>
+              <Link
+                to={`/country/${country.numericCode}`}
+                className={styles.country}
+                key={country.numericCode}
+              >
+                <CardMedia
+                  sx={{ height: 180, borderRadius: 3 }}
+                  image={country.flags.png}
+                  title={country.name}
+                />
+                <Typography variant="h4">{country.name}</Typography>
+
+                <p>
+                  <strong>Population</strong>:&nbsp;
+                  <span>{country.population}</span>
+                </p>
+                <p>
+                  <strong>Region</strong>:&nbsp;<span>{country.region}</span>
+                </p>
+                <p>
+                  <strong>Capital</strong>:&nbsp;<span>{country.capital}</span>
+                </p>
+              </Link>
+            </CardContent>
+          </Card>
         ))}
       </div>
-    </div>
+    </MyApp>
   );
 };
 

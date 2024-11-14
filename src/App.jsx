@@ -4,20 +4,36 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import CountryDetails from "./pages/countryDetails";
 import Layout from "./components/layout";
+import { DarkModeProvider } from './components/DarkModeContext';
 
 const App = () => {
-
   return (
-    <Layout className={styles.App}>
+    <DarkModeProvider className={styles.App}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/country/:numericCode" element={<CountryDetails />} />
         </Routes>
       </BrowserRouter>
-    </Layout>
+    </DarkModeProvider>
   );
 };
 
 export default App;
+
+// App.js
+// import React from 'react';
+// import { DarkModeProvider } from './components/DarkModeContext';
+// import MyApp from './components/layout';
+
+// const App = () => {
+//   return (
+//     <DarkModeProvider>
+//       <MyApp />
+//     </DarkModeProvider>
+//   );
+// };
+
+// export default App;
+
 // https://mui.com/material-ui/customization/dark-mode/
