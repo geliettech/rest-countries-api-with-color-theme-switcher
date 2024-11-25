@@ -21,19 +21,4 @@ const App = () => {
 
 export default App;
 
-// App.js
-// import React from 'react';
-// import { DarkModeProvider } from './components/DarkModeContext';
-// import MyApp from './components/layout';
-
-// const App = () => {
-//   return (
-//     <DarkModeProvider>
-//       <MyApp />
-//     </DarkModeProvider>
-//   );
-// };
-
-// export default App;
-
 // https://mui.com/material-ui/customization/dark-mode/
