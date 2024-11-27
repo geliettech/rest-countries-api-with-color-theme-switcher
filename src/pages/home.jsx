@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Layout from "../components/layout";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,12 +12,10 @@ const Home = () => {
   const [region, setRegion] = useState("All");
 
   useEffect(() => {
-    
     axios
       .get("https://restcountries.com/v2/all")
       .then((response) => {
         setCountries(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
@@ -35,10 +32,6 @@ const Home = () => {
     const matchesRegion = region === "All" || country.region === region;
     return matchesSearch && matchesRegion;
   });
-
-  if (loading) {
-    return <p>Loading countries...</p>;
-  }
 
   return (
     <Layout className={styles.home}>
@@ -57,7 +50,9 @@ const Home = () => {
           className={styles.selectOption}
           aria-label="Select region"
         >
-          <option value="All" disabled>Filter by Region</option>
+          <option value="All" disabled>
+            Filter by Region
+          </option>
           <option value="Africa">Africa</option>
           <option value="Americas">America</option>
           <option value="Asia">Asia</option>
@@ -65,10 +60,13 @@ const Home = () => {
           <option value="Oceania">Oceania</option>
         </select>
       </div>
-
+      <div>{loading && <p>Loading countries...</p>}</div>
       <div className={styles.countries}>
         {filteredCountries.map((country) => (
-          <Card sx={{ width: "100%", borderRadius: 3, padding: 1 }} key={country.numericCode}>
+          <Card
+            sx={{ width: "100%", borderRadius: 3, padding: 1 }}
+            key={country.numericCode}
+          >
             <CardContent>
               <Link
                 to={`/country/${country.numericCode}`}

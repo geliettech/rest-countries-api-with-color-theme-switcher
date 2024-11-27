@@ -38,72 +38,78 @@ const CountryDetails = () => {
       });
   }, [numericCode]);
 
-  if (loading) {
-    return <p>Loading country details...</p>;
-  }
 
   return (
     <Layout>
       <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} /> back
       </Link>
-      <div className={styles.country_details}>
-        <img src={country.flags.svg} alt="country flag" />
-        <div>
-          <h3>{country.name}</h3>
-          <div className={styles.details}>
-            <p>
-              <strong>Native Name</strong>:&nbsp;
-              <span>{country.nativeName}</span>
-            </p>
-            <p>
-              <strong>Population</strong>:&nbsp;
-              <span>{country.population}</span>
-            </p>
-            <p>
-              <strong>Region</strong>:&nbsp;<span>{country.region}</span>
-            </p>
-            <p>
-              <strong>Sub Region</strong>:&nbsp;<span>{country.subregion}</span>
-            </p>
-            <p>
-              <strong>Capital</strong>:&nbsp;<span>{country.capital}</span>
-            </p>
-            <p>
-              <strong>Top Level Domain</strong>:&nbsp;
-              <span>{country.topLevelDomain}</span>
-            </p>
-            <p>
-              <strong>Currencies</strong>:&nbsp;
-              <span>
-                {country.currencies.map((currency) => currency.name).join(", ")}
-              </span>
-            </p>
-            <p>
-              <strong>Languages</strong>:&nbsp;
-              <span>
-                {country.languages.map((language) => language.name).join(", ")}
-              </span>
-            </p>
-          </div>
+      {loading ? (
+        <p>Loading country Details...</p>
+      ) : (
+        <div className={styles.country_details}>
+          <img src={country.flags.svg} alt="country flag" />
           <div>
-            <strong>Border Countries</strong>:&nbsp;
-            <span>
-              {borderCountries.length > 0
-                ? borderCountries.map((borderCountry) => (
-                    <Link
-                      to={`/country/${borderCountry.numericCode}`} // Adjust the path if necessary
-                      key={borderCountry.alpha3Code}
-                      className={styles.border_link}
-                    >
-                      <div> {borderCountry.name}</div>
-                    </Link>
-                  ))
-                : "None"}
-            </span>
+            <h3>{country.name}</h3>
+            <div className={styles.details}>
+              <p>
+                <strong>Native Name</strong>:&nbsp;
+                <span>{country.nativeName}</span>
+              </p>
+              <p>
+                <strong>Population</strong>:&nbsp;
+                <span>{country.population}</span>
+              </p>
+              <p>
+                <strong>Region</strong>:&nbsp;<span>{country.region}</span>
+              </p>
+              <p>
+                <strong>Sub Region</strong>:&nbsp;
+                <span>{country.subregion}</span>
+              </p>
+              <p>
+                <strong>Capital</strong>:&nbsp;<span>{country.capital}</span>
+              </p>
+              <p>
+                <strong>Top Level Domain</strong>:&nbsp;
+                <span>{country.topLevelDomain}</span>
+              </p>
+              <p>
+                <strong>Currencies</strong>:&nbsp;
+                <span>
+                  {country.currencies
+                    .map((currency) => currency.name)
+                    .join(", ")}
+                </span>
+              </p>
+              <p>
+                <strong>Languages</strong>:&nbsp;
+                <span>
+                  {country.languages
+                    .map((language) => language.name)
+                    .join(", ")}
+                </span>
+              </p>
+            </div>
+            <div>
+              <strong>Border Countries</strong>:&nbsp;
+              <span>
+                {borderCountries.length > 0
+                  ? borderCountries.map((borderCountry) => (
+                      <Link
+                        to={`/country/${borderCountry.numericCode}`} // Adjust the path if necessary
+                        key={borderCountry.alpha3Code}
+                        className={styles.border_link}
+                      >
+                        <div> {borderCountry.name}</div>
+                      </Link>
+                    ))
+                  : "None"}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </Layout>
   );
 };
