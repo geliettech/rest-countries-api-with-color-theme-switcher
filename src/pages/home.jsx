@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     
     axios
-      .get("../../data.json")
+      .get("https://restcountries.com/v3/all")
       .then((response) => {
         setCountries(response.data);
         console.log(response.data);
