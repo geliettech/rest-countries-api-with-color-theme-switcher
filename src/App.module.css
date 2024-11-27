@@ -12,12 +12,7 @@ html {
   width: 90%;
   margin: 0 auto;
 }
-/* style for header */
-.header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 /* style for home page */
 .searchInput_selectOption{

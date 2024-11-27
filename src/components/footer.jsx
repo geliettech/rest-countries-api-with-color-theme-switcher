@@ -4,9 +4,13 @@ import styles from "../App.module.css";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.attribution}> {/* Updated to className */}
+      <div className={styles.attribution}>
         Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Frontend Mentor
         </a>
         . Coded by
