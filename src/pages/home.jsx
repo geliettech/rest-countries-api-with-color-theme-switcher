@@ -72,12 +72,12 @@ const Home = () => {
 
       <div className={styles.countries}>
         {filteredCountries.map((country) => (
-          <Card sx={{ width: "100%", borderRadius: 3, padding: 1 }}>
+          <Card sx={{ width: "100%", borderRadius: 3, padding: 1 }}  key={country.numericCode}>
             <CardContent>
               <Link
                 to={`/country/${country.numericCode}`}
                 className={styles.country}
-                key={country.numericCode}
+               
               >
                 <CardMedia
                   sx={{ height: 180, borderRadius: 3 }}

@@ -13,7 +13,10 @@ import {
   Typography,
 } from "@mui/material";
 
-const MyApp = ({ children }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
+
+const Layout = ({ children }) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   const theme = createTheme({
@@ -26,12 +29,18 @@ const MyApp = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Paper style={{ padding: 16, textAlign: "center" }}>
-        <Typography variant="h4" gutterBottom>
-        <Header />
+        <Typography variant="h1" gutterBottom>
+        Where in the world?
+         
+          {/* <Header /> */}
+          {/* <Button onClick={toggleDarkMode} variant="contained" color="primary">
+          Dark Mode
+        </Button> */}
         </Typography>
         <Button onClick={toggleDarkMode} variant="contained" color="primary">
-          Toggle Dark Mode
-        </Button>
+            <FontAwesomeIcon icon={faMoon} size="lg" />
+            Dark Mode
+          </Button>
       </Paper>
       {children}
       <Footer />
@@ -39,4 +48,4 @@ const MyApp = ({ children }) => {
   );
 };
 
-export default MyApp;
+export default Layout;
