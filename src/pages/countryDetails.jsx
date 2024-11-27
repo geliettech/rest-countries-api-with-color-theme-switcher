@@ -15,7 +15,7 @@ const CountryDetails = () => {
   useEffect(() => {
     // Fetch main country data
     axios
-      .get("https://restcountries.com/v3/all") // Make sure this path is correct
+      .get("https://restcountries.com/v2/all") // Make sure this path is correct
       .then((response) => {
         const countryData = response.data.find(
           (c) => c.numericCode === numericCode
