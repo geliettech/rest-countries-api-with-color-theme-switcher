@@ -1,13 +1,9 @@
 import React from "react";
-import Header from "./header";
 import Footer from "./footer";
 import { useDarkMode } from "./DarkModeContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
   Button,
-  Card,
-  CardContent,
-  CardMedia,
   CssBaseline,
   Paper,
   Typography,
@@ -31,11 +27,6 @@ const Layout = ({ children }) => {
       <Paper style={{ padding: 16, textAlign: "center" }}>
         <Typography variant="h1" gutterBottom>
         Where in the world?
-         
-          {/* <Header /> */}
-          {/* <Button onClick={toggleDarkMode} variant="contained" color="primary">
-          Dark Mode
-        </Button> */}
         </Typography>
         <Button onClick={toggleDarkMode} variant="contained" color="primary">
             <FontAwesomeIcon icon={faMoon} size="lg" />

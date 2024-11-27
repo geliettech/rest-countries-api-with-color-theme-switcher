@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "../App.module.css";
 import axios from "axios";
-import MyApp from "../components/layout";
+import Layout from "../components/layout";
 
 const CountryDetails = () => {
   const { numericCode } = useParams();
@@ -43,7 +43,7 @@ const CountryDetails = () => {
   }
 
   return (
-    <MyApp>
+    <Layout>
       <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} /> back
       </Link>
@@ -104,7 +104,7 @@ const CountryDetails = () => {
           </div>
         </div>
       </div>
-    </MyApp>
+    </Layout>
   );
 };
 
