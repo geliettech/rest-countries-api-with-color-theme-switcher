@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import styles from "../App.module.css";
 import axios from "axios";
 import Layout from "../components/layout";
@@ -42,7 +41,7 @@ const CountryDetails = () => {
   return (
     <Layout>
       <Link to="/">
-        <FontAwesomeIcon icon={faArrowLeft} /> back
+        <FaArrowLeftLong /> back
       </Link>
       {loading ? (
         <p>Loading country Details...</p>

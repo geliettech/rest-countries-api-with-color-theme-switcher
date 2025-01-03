@@ -3,10 +3,7 @@ import Footer from "./footer";
 import { useDarkMode } from "./DarkModeContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Button, CssBaseline, Paper, Typography } from "@mui/material";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faMoonFill } from "@fortawesome/free-regular-svg-icons";
-import { IconName } from "react-icons/bs";
-
+import { BsMoon, BsMoonFill } from "react-icons/bs";
 
 const Layout = ({ children }) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -50,8 +47,7 @@ const Layout = ({ children }) => {
             color: darkMode ? "#fff" : "#000",
           }}
         >
-          <FontAwesomeIcon icon={faMoonFill} size="lg"  style={{ color: "blue" }} />
-          {/* {darkMode ? "Light Mode" : "Dark Mode"} */}
+          {darkMode ? <BsMoonFill /> : <BsMoon />}
           Dark Mode
         </Button>
       </Paper>
