@@ -28,6 +28,9 @@ const Layout = ({ children }) => {
       action: {
         input: darkMode ? "hsl(0, 0%, 52%)" : "hsl(0, 0%, 52%)",
       },
+      typography: {
+        fontFamily: '"Nunito Sans", serif',
+      },
     },
   });
 
@@ -41,8 +44,8 @@ const Layout = ({ children }) => {
           color: theme.palette.text.primary,
         }}
       >
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Toolbar className="Toolbar">
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             Where in the world?
           </Typography>
           <Button color="inherit" onClick={toggleDarkMode}>
@@ -51,7 +54,9 @@ const Layout = ({ children }) => {
           </Button>
         </Toolbar>
       </AppBar>
-      {children}
+      <div>
+        {children}
+      </div>
       <Footer />
     </ThemeProvider>
   );

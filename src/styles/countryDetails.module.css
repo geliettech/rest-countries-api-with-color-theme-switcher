@@ -1,4 +1,7 @@
 /* styles for detail page */
+.countryDetails{
+  font-size: 16px;
+}
 .country_details {
   margin: 32px 0;
   display: flex;
