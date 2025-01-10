@@ -1,0 +1,14 @@
+/* style for home page */
+.searchInput_selectOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.countries {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 32px 0;
+}

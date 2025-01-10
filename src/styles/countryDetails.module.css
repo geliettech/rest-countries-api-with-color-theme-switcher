@@ -1,0 +1,12 @@
+/* styles for detail page */
+.country_details {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 18px;
+}
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

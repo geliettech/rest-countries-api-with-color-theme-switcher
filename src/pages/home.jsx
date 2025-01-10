@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "../App.module.css";
+import styles from "../styles/home.module.css";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";

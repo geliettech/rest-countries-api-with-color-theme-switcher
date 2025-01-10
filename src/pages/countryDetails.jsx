@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import styles from "../App.module.css";
+import styles from "../styles/countryDetails.module.css";
 import axios from "axios";
 import Layout from "../components/layout";
 
