@@ -39,27 +39,38 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <AppBar
         position="static"
-        style={{
+        sx={{
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
         }}
       >
-        <Toolbar className="Toolbar">
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+        <Toolbar sx={{ width: "94%",  margin: "auto"}}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontWeight: 800,
+              fontFamily: theme.palette.typography.fontFamily,
+            }}
+          >
             Where in the world?
           </Typography>
-          <Button color="inherit" onClick={toggleDarkMode}>
+          <Button
+            color="inherit"
+            onClick={toggleDarkMode}
+            sx={{ fontFamily: theme.palette.typography.fontFamily }}
+          >
             {darkMode ? <BsMoonFill /> : <BsMoon />}
-            Dark Mode
+            <span style={{ marginLeft: "6px" }}>Dark Mode</span>
           </Button>
         </Toolbar>
       </AppBar>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <Footer />
     </ThemeProvider>
   );
 };
 
 export default Layout;
+// https://mui.com/store/collections/how-to-create-a-personal-website-with-react-material-ui/?srsltid=AfmBOoqoBwJiaVnhcr4gSbCkGOdhfz0elraLVwf0vSAWnp5OaHnPirly
