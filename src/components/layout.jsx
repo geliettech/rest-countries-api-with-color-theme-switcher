@@ -28,9 +28,12 @@ const Layout = ({ children }) => {
       action: {
         input: darkMode ? "hsl(0, 0%, 52%)" : "hsl(0, 0%, 52%)",
       },
-      typography: {
-        fontFamily: '"Nunito Sans", serif',
-      },
+    },
+    typography: {
+      fontFamily: '"Nunito Sans", serif',
+      fontWeightLight: 300,
+      fontWeightMedium: 600,
+      fontWeightBold: 800,
     },
   });
 
@@ -42,16 +45,17 @@ const Layout = ({ children }) => {
         sx={{
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
+          boxShadow: darkMode ? "none" : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
         }}
       >
         <Toolbar sx={{ width: "94%", margin: "auto" }}>
           <Typography
             variant="h6"
-            component="div"
             sx={{
               flexGrow: 1,
-              fontWeight: 800,
-              fontFamily: theme.palette.typography.fontFamily,
+              fontWeight: theme.typography.fontWeightBold,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: { xs: "14px", sm: "16px", md: "22px" },
             }}
           >
             Where in the world?
@@ -59,14 +63,29 @@ const Layout = ({ children }) => {
           <Button
             color="inherit"
             onClick={toggleDarkMode}
-            sx={{ fontFamily: theme.palette.typography.fontFamily }}
+            sx={{
+              fontFamily: theme.typography.fontFamily,
+              display: "flex",
+              alignItems: "center",
+            }}
           >
             {darkMode ? <BsMoonFill /> : <BsMoon />}
-            <span style={{ marginLeft: "6px" }}>Dark Mode</span>
+            <Typography
+              component="span"
+              sx={{
+                marginLeft: "4px",
+                fontWeight: theme.typography.fontWeightMedium,
+                fontSize: "14px",
+                textTransform: "capitalize",
+                fontSize: { xs: "12px", sm: "14px" },
+              }}
+            >
+              Dark Mode
+            </Typography>
           </Button>
         </Toolbar>
       </AppBar>
-      <div>{children}</div>
+      <div style={{ minHeight: "80vh" }}>{children}</div>
       <Footer />
     </ThemeProvider>
   );
