@@ -45,6 +45,7 @@ const Home = () => {
             className={styles.searchInput}
             aria-label="Search for countries"
           />
+          
           <select
             value={region}
             onChange={(event) => setRegion(event.target.value)}

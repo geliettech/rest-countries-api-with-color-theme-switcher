@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
           color: theme.palette.text.primary,
         }}
       >
-        <Toolbar sx={{ width: "94%",  margin: "auto"}}>
+        <Toolbar sx={{ width: "94%", margin: "auto" }}>
           <Typography
             variant="h6"
             component="div"
@@ -73,4 +73,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-// https://mui.com/store/collections/how-to-create-a-personal-website-with-react-material-ui/?srsltid=AfmBOoqoBwJiaVnhcr4gSbCkGOdhfz0elraLVwf0vSAWnp5OaHnPirly
