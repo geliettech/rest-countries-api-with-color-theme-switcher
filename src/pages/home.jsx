@@ -70,7 +70,7 @@ const Home = () => {
         {loading ? (
           <CircularIndeterminate />
         ) : (
-          <Grid container spacing={2}>
+          <Grid container spacing={8}>
             {filteredCountries.map((country) => (
               <Grid item xs={12} sm={6} md={3} key={country.numericCode}>
                 <Card>
@@ -111,3 +111,5 @@ const Home = () => {
 };
 
 export default Home;
+// https://v5.mui.com/material-ui/react-grid2/
+// https://mui.com/material-ui/react-grid/?srsltid=AfmBOooqC2v4Sj6hZgQJg4Wjuh-JXEV19rFtqtcl3Fv-54K40ZpQkkmu
