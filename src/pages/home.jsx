@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Layout from "../components/layout";
 import axios from "axios";
 import styles from "../styles/home.module.css";
-import { Link } from "react-router-dom";
-import Layout from "../components/layout";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { IoMdSearch } from "react-icons/io";
 import CircularIndeterminate from "../components/loader";
+import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -70,39 +70,40 @@ const Home = () => {
         {loading ? (
           <CircularIndeterminate />
         ) : (
-          <div className={styles.countries}>
+          <Grid container spacing={2}>
             {filteredCountries.map((country) => (
-              <Card
-                sx={{ width: "100%", borderRadius: 3, padding: 1 }}
-                key={country.numericCode}
-              >
-                <CardContent>
-                  <Link
-                    to={`/country/${country.numericCode}`}
-                    className={styles.country}
-                  >
-                    <CardMedia
-                      sx={{ height: 180, borderRadius: 3 }}
-                      image={country.flags.png}
-                      title={country.name}
-                    />
-                    <Typography variant="h4">{country.name}</Typography>
-
-                    <p>
-                      <strong>Population</strong>:{" "}
-                      <span>{country.population}</span>
-                    </p>
-                    <p>
-                      <strong>Region</strong>: <span>{country.region}</span>
-                    </p>
-                    <p>
-                      <strong>Capital</strong>: <span>{country.capital}</span>
-                    </p>
-                  </Link>
-                </CardContent>
-              </Card>
+              <Grid item xs={12} sm={6} md={3} key={country.numericCode}>
+                <Card>
+                  <CardContent>
+                    <Link
+                      to={`/country/${country.numericCode}`}
+                      className={styles.country}
+                    >
+                      <CardMedia
+                        sx={{ height: 180 }}
+                        image={country.flags.png}
+                        title={country.name}
+                      />
+                      <Typography variant="h5">{country.name}</Typography>
+                      <Typography variant="body2">
+                        <p>
+                          <strong>Population</strong>:{" "}
+                          <span>{country.population}</span>
+                        </p>
+                        <p>
+                          <strong>Region</strong>: <span>{country.region}</span>
+                        </p>
+                        <p>
+                          <strong>Capital</strong>:{" "}
+                          <span>{country.capital}</span>
+                        </p>
+                      </Typography>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Grid>
             ))}
-          </div>
+          </Grid>
         )}
       </div>
     </Layout>

@@ -60,13 +60,3 @@
   background-position: right 8px center; /* Position custom arrow */
   background-size: 16px;
 }
-
-
-
-.countries {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  flex-wrap: wrap;
-  gap: 28px;
-  margin: 32px 0;
-}

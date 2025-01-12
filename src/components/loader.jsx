@@ -9,7 +9,7 @@ export default function CircularIndeterminate() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "50vh",
+        height: "60vh",
       }}
     >
       <CircularProgress color="hsl(0, 0%, 100%)" size="3rem" />
