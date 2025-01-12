@@ -6,7 +6,6 @@ import {
   AppBar,
   Button,
   CssBaseline,
-  Paper,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -45,7 +44,9 @@ const Layout = ({ children }) => {
         sx={{
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
-          boxShadow: darkMode ? "none" : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
+          boxShadow: darkMode
+            ? "hsl(0, 0%, 100%)"
+            : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
         }}
       >
         <Toolbar sx={{ width: "94%", margin: "auto" }}>
@@ -75,7 +76,6 @@ const Layout = ({ children }) => {
               sx={{
                 marginLeft: "4px",
                 fontWeight: theme.typography.fontWeightMedium,
-                fontSize: "14px",
                 textTransform: "capitalize",
                 fontSize: { xs: "12px", sm: "14px" },
               }}

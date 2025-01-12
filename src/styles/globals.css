@@ -8,7 +8,6 @@ html {
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
-  background-color: inherit;
 }
 
 /* Footer Styles */
@@ -16,7 +15,4 @@ html {
   text-align: center;
   padding: 16px 0;
   font-size: 14px;
-  color: inherit;
-  background-color: inherit;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

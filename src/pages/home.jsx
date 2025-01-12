@@ -39,7 +39,6 @@ const Home = () => {
       <div className={styles.home}>
         <div className={styles.searchInput_selectOption}>
           <div className={styles.searchInput}>
-            {/* <IoIosSearch className={styles.searchIcon} /> */}
             <IoMdSearch className={styles.searchIcon} />
             <input
               type="search"
