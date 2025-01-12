@@ -4,6 +4,7 @@ import styles from "../styles/home.module.css";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { IoMdSearch } from "react-icons/io";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -37,15 +38,19 @@ const Home = () => {
     <Layout>
       <div className={styles.home}>
         <div className={styles.searchInput_selectOption}>
-          <input
-            type="search"
-            placeholder="Search for a country"
-            onChange={(event) => setSearchTerm(event.target.value)}
-            value={searchTerm}
-            className={styles.searchInput}
-            aria-label="Search for countries"
-          />
-          
+          <div className={styles.searchInput}>
+            {/* <IoIosSearch className={styles.searchIcon} /> */}
+            <IoMdSearch className={styles.searchIcon} />
+            <input
+              type="search"
+              placeholder="Search for a country"
+              onChange={(event) => setSearchTerm(event.target.value)}
+              value={searchTerm}
+              className={styles.searchInputField}
+              aria-label="Search for countries"
+            />
+          </div>
+
           <select
             value={region}
             onChange={(event) => setRegion(event.target.value)}
