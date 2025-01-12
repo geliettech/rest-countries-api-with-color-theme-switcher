@@ -4,6 +4,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import styles from "../styles/countryDetails.module.css";
 import axios from "axios";
 import Layout from "../components/layout";
+import CircularIndeterminate from "../components/loader";
 
 const CountryDetails = () => {
   const { numericCode } = useParams();
@@ -44,7 +45,7 @@ const CountryDetails = () => {
           <FaArrowLeftLong /> back
         </Link>
         {loading ? (
-          <p>Loading country Details...</p>
+          <CircularIndeterminate />
         ) : (
           <div className={styles.country_details}>
             <img src={country.flags.svg} alt="country flag" />

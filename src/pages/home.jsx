@@ -67,40 +67,43 @@ const Home = () => {
             <option value="Oceania">Oceania</option>
           </select>
         </div>
-        <div>{loading && <CircularIndeterminate />}</div>
-        <div className={styles.countries}>
-          {filteredCountries.map((country) => (
-            <Card
-              sx={{ width: "100%", borderRadius: 3, padding: 1 }}
-              key={country.numericCode}
-            >
-              <CardContent>
-                <Link
-                  to={`/country/${country.numericCode}`}
-                  className={styles.country}
-                >
-                  <CardMedia
-                    sx={{ height: 180, borderRadius: 3 }}
-                    image={country.flags.png}
-                    title={country.name}
-                  />
-                  <Typography variant="h4">{country.name}</Typography>
+        {loading ? (
+          <CircularIndeterminate />
+        ) : (
+          <div className={styles.countries}>
+            {filteredCountries.map((country) => (
+              <Card
+                sx={{ width: "100%", borderRadius: 3, padding: 1 }}
+                key={country.numericCode}
+              >
+                <CardContent>
+                  <Link
+                    to={`/country/${country.numericCode}`}
+                    className={styles.country}
+                  >
+                    <CardMedia
+                      sx={{ height: 180, borderRadius: 3 }}
+                      image={country.flags.png}
+                      title={country.name}
+                    />
+                    <Typography variant="h4">{country.name}</Typography>
 
-                  <p>
-                    <strong>Population</strong>:{" "}
-                    <span>{country.population}</span>
-                  </p>
-                  <p>
-                    <strong>Region</strong>: <span>{country.region}</span>
-                  </p>
-                  <p>
-                    <strong>Capital</strong>: <span>{country.capital}</span>
-                  </p>
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                    <p>
+                      <strong>Population</strong>:{" "}
+                      <span>{country.population}</span>
+                    </p>
+                    <p>
+                      <strong>Region</strong>: <span>{country.region}</span>
+                    </p>
+                    <p>
+                      <strong>Capital</strong>: <span>{country.capital}</span>
+                    </p>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </Layout>
   );
