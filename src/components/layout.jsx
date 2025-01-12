@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <div style={{ minHeight: "80vh" }}>{children}</div>
+      <div style={{ minHeight: "100vh" }}>{children}</div>
       <Footer />
     </ThemeProvider>
   );

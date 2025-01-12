@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Layout from "../components/layout";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { IoMdSearch } from "react-icons/io";
+import CircularIndeterminate from "../components/loader";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -66,7 +67,7 @@ const Home = () => {
             <option value="Oceania">Oceania</option>
           </select>
         </div>
-        <div>{loading && <p>Loading countries...</p>}</div>
+        <div>{loading && <CircularIndeterminate />}</div>
         <div className={styles.countries}>
           {filteredCountries.map((country) => (
             <Card
