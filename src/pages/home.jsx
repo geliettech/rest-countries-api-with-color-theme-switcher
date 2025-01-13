@@ -73,33 +73,70 @@ const Home = () => {
           <Grid container spacing={8}>
             {filteredCountries.map((country) => (
               <Grid item xs={12} sm={6} md={3} key={country.numericCode}>
-                <Card>
-                  <CardContent>
-                    <Link
-                      to={`/country/${country.numericCode}`}
-                      className={styles.country}
-                    >
-                      <CardMedia
-                        sx={{ height: 180 }}
-                        image={country.flags.png}
-                        title={country.name}
-                      />
-                      <Typography variant="h5">{country.name}</Typography>
-                      <Typography variant="body2">
-                        <p>
-                          <strong>Population</strong>:{" "}
-                          <span>{country.population}</span>
-                        </p>
-                        <p>
-                          <strong>Region</strong>: <span>{country.region}</span>
-                        </p>
-                        <p>
-                          <strong>Capital</strong>:{" "}
-                          <span>{country.capital}</span>
-                        </p>
+                <Card
+                  sx={{
+                    borderRadius: 2,
+                    boxShadow: "box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);",
+                    overflow: "hidden",
+                    transition: "transform 0.2s",
+                    "&:hover": {
+                      transform: "scale(1.03)",
+                    },
+                  }}
+                >
+                  <Link
+                    to={`/country/${country.numericCode}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <CardMedia
+                      sx={{ height: 160 }}
+                      image={country.flags.png}
+                      title={country.name}
+                    />
+                    <CardContent sx={{ padding: 3 }}>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 800,
+                          marginBottom: 1.5,
+                          fontSize: "18px",
+                        }}
+                      >
+                        {country.name}
                       </Typography>
-                    </Link>
-                  </CardContent>
+                      <Typography variant="body2" component="div">
+                        <Typography
+                          component="div"
+                          sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                        >
+                          <strong style={{ fontWeight: 600 }}>
+                            Population:{" "}
+                          </strong>
+                          <span style={{ fontWeight: 300 }}>
+                            {country.population.toLocaleString()}
+                          </span>
+                        </Typography>
+                        <Typography
+                          component="div"
+                          sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                        >
+                          <strong style={{ fontWeight: 600 }}>Region: </strong>
+                          <span style={{ fontWeight: 300 }}>
+                            {country.region}
+                          </span>
+                        </Typography>
+                        <Typography
+                          component="div"
+                          sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                        >
+                          <strong style={{ fontWeight: 600 }}>Capital: </strong>
+                          <span style={{ fontWeight: 300 }}>
+                            {country.capital}
+                          </span>
+                        </Typography>
+                      </Typography>
+                    </CardContent>
+                  </Link>
                 </Card>
               </Grid>
             ))}
@@ -111,5 +148,3 @@ const Home = () => {
 };
 
 export default Home;
-// https://v5.mui.com/material-ui/react-grid2/
-// https://mui.com/material-ui/react-grid/?srsltid=AfmBOooqC2v4Sj6hZgQJg4Wjuh-JXEV19rFtqtcl3Fv-54K40ZpQkkmu
