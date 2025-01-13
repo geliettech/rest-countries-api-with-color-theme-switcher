@@ -15,7 +15,7 @@ const CountryDetails = () => {
   useEffect(() => {
     // Fetch main country data
     axios
-      .get("https://restcountries.com/v2/all") // Make sure this path is correct
+      .get("https://restcountries.com/v2/all") 
       .then((response) => {
         const countryData = response.data.find(
           (c) => c.numericCode === numericCode
@@ -97,7 +97,7 @@ const CountryDetails = () => {
                   {borderCountries.length > 0
                     ? borderCountries.map((borderCountry) => (
                         <Link
-                          to={`/country/${borderCountry.numericCode}`} // Adjust the path if necessary
+                          to={`/country/${borderCountry.numericCode}`} 
                           key={borderCountry.alpha3Code}
                           className={styles.border_link}
                         >

@@ -76,7 +76,8 @@ const Home = () => {
                 <Card
                   sx={{
                     borderRadius: 2,
-                    boxShadow: "box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);",
+                    boxShadow:
+                      "box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);",
                     overflow: "hidden",
                     transition: "transform 0.2s",
                     "&:hover": {
