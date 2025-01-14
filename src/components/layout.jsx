@@ -8,6 +8,7 @@ import {
   CssBaseline,
   Toolbar,
   Typography,
+  Box,
 } from "@mui/material";
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 
@@ -49,7 +50,7 @@ const Layout = ({ children }) => {
             : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
         }}
       >
-        <Toolbar sx={{ width: "94%", margin: "auto" }}>
+        <Toolbar sx={{ width: "90%", padding: "20px 0", margin: "auto" }}>
           <Typography
             variant="h6"
             sx={{
@@ -85,7 +86,11 @@ const Layout = ({ children }) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <div style={{ minHeight: "100vh" }}>{children}</div>
+      <Box
+        sx={{ minHeight: "100vh", width: "90%", margin: "auto", padding: 4 }}
+      >
+        {children}
+      </Box>
       <Footer />
     </ThemeProvider>
   );
