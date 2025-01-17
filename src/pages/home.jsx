@@ -23,7 +23,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [region, setRegion] = useState("All");
-  const [error, setError] = useState(""); // State for error handling
+  const [error, setError] = useState(false); // State for error handling
 
   useEffect(() => {
     axios
@@ -33,10 +33,13 @@ const Home = () => {
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
-        setError(`Failed to fetch countries: ${error.message}. Please try again later.`); // Set error message
+        setError(
+          `Failed to fetch countries: ${error.message}. Please try again later.`
+        ); // Set error message
       })
       .finally(() => {
         setLoading(false);
+        setError(false);
       });
   }, []);
 
@@ -56,10 +59,10 @@ const Home = () => {
           justifyContent: "space-between",
           mb: 4,
           flexWrap: "wrap",
+          gap: 4,
         }}
       >
         <Box className={styles.SearchInput_Wrapper}>
-          {/* <IoMdSearch className={styles.searchIcon} /> */}
           {/* Search Input */}
           <TextField
             variant="outlined"
@@ -108,7 +111,11 @@ const Home = () => {
       </Box>
 
       {/* Show error message if there is an error */}
-      {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
 
       {loading ? (
         <CircularIndeterminate />

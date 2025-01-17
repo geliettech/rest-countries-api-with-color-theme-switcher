@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
             : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
         }}
       >
-        <Toolbar sx={{ width: "90%", padding: "20px 0", margin: "auto" }}>
+        <Toolbar sx={{ width: { xs: "80%", sm: "90%", md: "80%" }, padding: "20px 0", margin: "auto" }}>
           <Typography
             variant="h6"
             sx={{
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Box
-        sx={{ minHeight: "100vh", width: "90%", margin: "auto", padding: 4 }}
+        sx={{ minHeight: "100vh", width: { xs: "100%", sm: "90%", md: "90%" }, margin: "auto", padding: { xs: 4, sm: 4, md: 4 }}}
       >
         {children}
       </Box>
