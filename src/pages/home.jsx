@@ -13,6 +13,8 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  InputAdornment,
+  Alert, // Import Alert
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -21,6 +23,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [region, setRegion] = useState("All");
+  const [error, setError] = useState(""); // State for error handling
 
   useEffect(() => {
     axios
@@ -30,6 +33,7 @@ const Home = () => {
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
+        setError(`Failed to fetch countries: ${error.message}. Please try again later.`); // Set error message
       })
       .finally(() => {
         setLoading(false);
@@ -55,7 +59,7 @@ const Home = () => {
         }}
       >
         <Box className={styles.SearchInput_Wrapper}>
-          <IoMdSearch className={styles.searchIcon} />
+          {/* <IoMdSearch className={styles.searchIcon} /> */}
           {/* Search Input */}
           <TextField
             variant="outlined"
@@ -64,6 +68,18 @@ const Home = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
             className={styles.searchInputField}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IoMdSearch />
+                </InputAdornment>
+              ),
+              sx: {
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "none", // Remove border
+                },
+              },
+            }}
           />
         </Box>
 
@@ -74,6 +90,13 @@ const Home = () => {
           onChange={(e) => setRegion(e.target.value)}
           variant="outlined"
           className={styles.selectOption}
+          InputProps={{
+            sx: {
+              "& .MuiOutlinedInput-notchedOutline": {
+                border: "none", // Remove border
+              },
+            },
+          }}
         >
           <MenuItem value="All">Filter by Region</MenuItem>
           <MenuItem value="Africa">Africa</MenuItem>
@@ -83,6 +106,10 @@ const Home = () => {
           <MenuItem value="Oceania">Oceania</MenuItem>
         </TextField>
       </Box>
+
+      {/* Show error message if there is an error */}
+      {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
+
       {loading ? (
         <CircularIndeterminate />
       ) : (

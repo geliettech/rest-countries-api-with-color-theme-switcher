@@ -3,18 +3,21 @@
 }
 /* Style for Search Input and selectOption Wrapper */
 .SearchInput_Wrapper {
-  /*  flex-wrap: wrap; /* Ensures proper layout on smaller screens */
-  max-width: 428px; 
+  max-width: 400px; 
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+  box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);
+  border-radius: 8px;
+  padding: 4px;
 }
 /* Search Icon */
 .searchIcon {
   position: absolute;
   font-size: 20px;
   color: hsl(209, 23%, 22%, 0.5);
+  padding: 10px;
 }
 /* Search Input Field */
 .searchInputField {
@@ -24,5 +27,6 @@
 .selectOption {
   width: 100%;
   max-width: 200px;
-  /* box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2); */
+  box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);
+  border-radius: 8px;
 }
