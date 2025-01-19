@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 
-const Layout = ({ children }) => {
+const Layout = ({ children , layoutClassName}) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   const theme = createTheme({
@@ -114,6 +114,7 @@ const Layout = ({ children }) => {
           margin: "auto",
           padding: { xs: 4, sm: 4, md: 4 },
         }}
+        className={layoutClassName}
       >
         {children}
       </Box>

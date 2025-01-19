@@ -53,7 +53,7 @@ const Home = () => {
   });
 
   return (
-    <Layout>
+    <Layout layoutClassName={styles.home}>
       <Box
         sx={{
           display: "flex",
@@ -150,7 +150,7 @@ const Home = () => {
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                      sx={{ marginBottom: 0.5}}
                     >
                       <strong style={{ fontWeight: 600 }}>Population:</strong>{" "}
                       <span style={{ fontWeight: 300 }}>
@@ -159,14 +159,14 @@ const Home = () => {
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                      sx={{ marginBottom: 0.5}}
                     >
                       <strong style={{ fontWeight: 600 }}>Region: </strong>
                       <span style={{ fontWeight: 300 }}>{country.region}</span>
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5, fontSize: "14px" }}
+                      sx={{ marginBottom: 0.5 }}
                     >
                       <strong style={{ fontWeight: 600 }}>Capital: </strong>
                       <span style={{ fontWeight: 300 }}>{country.capital}</span>

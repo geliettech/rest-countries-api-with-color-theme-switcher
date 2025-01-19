@@ -5,6 +5,7 @@ import { CardMedia, Box, Button, Typography, Grid, Alert } from "@mui/material";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import axios from "axios";
 import CircularIndeterminate from "../components/loader";
+import styles from "../styles/countryDetails.module.css";
 
 const CountryDetails = () => {
   const { numericCode } = useParams();
@@ -38,17 +39,18 @@ const CountryDetails = () => {
       })
       .finally(() => {
         setLoading(false);
+        setError(false);
       });
   }, [numericCode]);
 
   return (
-    <Layout>
-      {/* <Box sx={{ paddingTop: 4 }}> */}
+    <Layout layoutClassName={styles.countryDetails}>
         <Button
           component={Link}
           to="/"
           variant="contained"
-          sx={{ margin:  "20px 0 20px" }}
+          color="inherit"
+          sx={{ marginTop: 4, marginBottom: 7 }}
         >
           <FaArrowLeftLong /> back
         </Button>
