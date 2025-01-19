@@ -51,9 +51,7 @@ const CountryDetails = () => {
           sx={(theme) => ({
             marginTop: 4,
             marginBottom: 7,
-            boxShadow: theme.palette.mode === "dark"
-              ? "0px 0px 5px hsl(0, 0%, 100%, 0.2)"
-              : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
+              boxShadow: theme.boxShadow,
             padding: "8px 28px",
             color: theme.palette.text.primary,
             backgroundColor: theme.palette.background.paper,
@@ -160,7 +158,7 @@ const CountryDetails = () => {
                       </Button>
                     ))
                   ) : (
-                    <Typography>None</Typography>
+                    <Button>None</Button>
                   )}
                 </Box>
               </Box>

@@ -3,31 +3,35 @@
 }
 /* Style for Search Input and selectOption Wrapper */
 .SearchInput_Wrapper {
-  max-width: 400px;
+  max-width: 438px;
   width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);
-  border-radius: 8px;
-  padding: 4px;
+  border-radius: 4px;
 }
-
 /* Search Icon */
 .searchIcon {
-  position: absolute;
-  font-size: 20px;
-  color: hsl(209, 23%, 22%, 0.5);
-  padding: 10px;
-}
-/* Search Input Field */
-.searchInputField {
-  width: 100%;
+  font-size: 28px;
 }
 /* Select Option */
 .selectOption {
   width: 100%;
   max-width: 200px;
-  box-shadow: 0px 0px 5px hsl(209, 23%, 22%, 0.2);
-  border-radius: 8px;
+  border-radius: 4px;
+}
+.country_cards {
+  border-radius: 2;
+  overflow: hidden;
+}
+.country_cards:hover {
+  transform: scale(1.03);
+  transition: 0.2s;
+}
+.countries_link {
+  text-decoration: none;
+  color: inherit;
+}
+.country_details strong {
+  font-weight: 600;
+}
+.country_details span {
+  font-weight: 300;
 }

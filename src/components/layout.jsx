@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 
-const Layout = ({ children , layoutClassName}) => {
+const Layout = ({ children, layoutClassName }) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   const theme = createTheme({
@@ -25,31 +25,32 @@ const Layout = ({ children , layoutClassName}) => {
       text: {
         primary: darkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
       },
+      action: {
+        input: darkMode ? "hsl(0, 0%, 52%)" : "hsl(0, 0%, 52%)",
+      },
     },
     typography: {
       fontFamily: '"Nunito Sans", serif',
       fontWeightLight: 300,
       fontWeightMedium: 600,
       fontWeightBold: 800,
+      fontSizeHome: "14px",
+      fontSizeDetail: "16px",
     },
-    components: {
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            backgroundColor: darkMode
-              ? "hsl(209, 23%, 22%)"
-              : "hsl(0, 0%, 100%)",
-            borderRadius: "4px",
-            "& .MuiInputBase-root": {
-              color: darkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
-            },
-            "& .MuiOutlinedInput-notchedOutline": {
-              border: "none",
+    boxShadow: darkMode
+      ? "hsl(0, 0%, 100%, 0.1)"
+      : "0px 0px 5px hsl(209, 23%, 22%, 0.1)",
+      components: {
+        MuiOutlinedInput: {
+          styleOverrides: {
+            root: {
+              "& .MuiOutlinedInput-notchedOutline": {
+                border: "none", // Removes the border globally for all outlined text fields
+              },
             },
           },
         },
       },
-    },
   });
 
   return (
@@ -58,17 +59,15 @@ const Layout = ({ children , layoutClassName}) => {
       <AppBar
         position="static"
         sx={{
-          backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
-          boxShadow: darkMode
-            ? "hsl(0, 0%, 100%)"
-            : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
+          backgroundColor: theme.palette.background.paper,
+          boxShadow: theme.boxShadow,
         }}
       >
         <Toolbar
           sx={{
-            width: { xs: "80%", sm: "88%" },
             padding: "20px 0",
+            width: { xs: "80%", sm: "86%" },
             margin: "auto",
           }}
         >
@@ -77,28 +76,25 @@ const Layout = ({ children , layoutClassName}) => {
             sx={{
               flexGrow: 1,
               fontWeight: theme.typography.fontWeightBold,
-              fontFamily: theme.typography.fontFamily,
-              fontSize: { xs: "14px", sm: "16px", md: "22px" },
+              fontSize: { xs: "14px", sm: "18px", md: "22px" },
             }}
           >
             Where in the world?
           </Typography>
           <Button
-            color="inherit"
             onClick={toggleDarkMode}
             sx={{
-              fontFamily: theme.typography.fontFamily,
+              color: theme.palette.text.primary,
               display: "flex",
               alignItems: "center",
             }}
           >
             {darkMode ? <BsMoonFill /> : <BsMoon />}
             <Typography
-              component="span"
               sx={{
+                textTransform: "capitalize",
                 marginLeft: "4px",
                 fontWeight: theme.typography.fontWeightMedium,
-                textTransform: "capitalize",
                 fontSize: { xs: "12px", sm: "14px" },
               }}
             >
@@ -112,7 +108,7 @@ const Layout = ({ children , layoutClassName}) => {
           minHeight: "100vh",
           width: { xs: "100%", sm: "90%" },
           margin: "auto",
-          padding: { xs: 4, sm: 4, md: 4 },
+          padding: { xs: 4, sm: 4, md: 6 },
         }}
         className={layoutClassName}
       >

@@ -40,7 +40,6 @@ const Home = () => {
       })
       .finally(() => {
         setLoading(false);
-        setError(false);
       });
   }, []);
 
@@ -58,49 +57,46 @@ const Home = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mb: 4,
+          mb: { xs: 4, sm: 4, md: 6 },
           flexWrap: "wrap",
           gap: 4,
         }}
       >
-        <Box className={styles.SearchInput_Wrapper}>
+        <Box
+          sx={(theme) => ({
+            boxShadow: theme.boxShadow,
+            backgroundColor: theme.palette.background.paper,
+          })}
+          className={styles.SearchInput_Wrapper}
+        >
           {/* Search Input */}
           <TextField
+            search
             variant="outlined"
             placeholder="Search for a country..."
             fullWidth
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
-            className={styles.searchInputField}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <IoMdSearch />
+                  <IoMdSearch className={styles.selectOption} />
                 </InputAdornment>
               ),
-              sx: {
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none", // Remove border
-                },
-              },
             }}
           />
         </Box>
-
         {/* Filter Dropdown */}
         <TextField
           select
           value={region}
           onChange={(e) => setRegion(e.target.value)}
           variant="outlined"
+          sx={(theme) => ({
+            boxShadow: theme.boxShadow,
+            backgroundColor: theme.palette.background.paper,
+          })}
           className={styles.selectOption}
-          InputProps={{
-            sx: {
-              "& .MuiOutlinedInput-notchedOutline": {
-                border: "none", // Remove border
-              },
-            },
-          }}
         >
           <MenuItem value="All">Filter by Region</MenuItem>
           <MenuItem value="Africa">Africa</MenuItem>
@@ -113,7 +109,7 @@ const Home = () => {
 
       {/* Show error message if there is an error */}
       {error && (
-        <Alert severity="error" sx={{ mb: 3 }}>
+        <Alert severity="error" sx={{ mt: 6 }}>
           {error}
         </Alert>
       )}
@@ -125,19 +121,14 @@ const Home = () => {
           {filteredCountries.map((country) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={country.numericCode}>
               <Card
-                sx={{
-                  borderRadius: 2,
-                  boxShadow: "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
-                  overflow: "hidden",
-                  transition: "transform 0.2s",
-                  "&:hover": {
-                    transform: "scale(1.03)",
-                  },
-                }}
+                sx={(theme) => ({
+                  boxShadow: theme.boxShadow,
+                })}
+                className={styles.country_cards}
               >
                 <Link
                   to={`/country/${country.numericCode}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  className={styles.countries_link}
                 >
                   <CardMedia
                     sx={{ height: 160 }}
@@ -150,26 +141,27 @@ const Home = () => {
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5}}
+                      sx={{ mb: 0.5 }}
+                      className={styles.country_details}
                     >
-                      <strong style={{ fontWeight: 600 }}>Population:</strong>{" "}
-                      <span style={{ fontWeight: 300 }}>
-                        {country.population.toLocaleString()}
-                      </span>
+                      <strong>Population: </strong>
+                      <span>{country.population.toLocaleString()}</span>
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5}}
+                      sx={{ mb: 0.5 }}
+                      className={styles.country_details}
                     >
-                      <strong style={{ fontWeight: 600 }}>Region: </strong>
-                      <span style={{ fontWeight: 300 }}>{country.region}</span>
+                      <strong>Region: </strong>
+                      <span>{country.region}</span>
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ marginBottom: 0.5 }}
+                      sx={{ mb: 0.5 }}
+                      className={styles.country_details}
                     >
-                      <strong style={{ fontWeight: 600 }}>Capital: </strong>
-                      <span style={{ fontWeight: 300 }}>{country.capital}</span>
+                      <strong>Capital: </strong>
+                      <span>{country.capital}</span>
                     </Typography>
                   </CardContent>
                 </Link>
