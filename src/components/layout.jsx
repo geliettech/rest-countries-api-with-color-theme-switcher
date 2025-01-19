@@ -25,15 +25,30 @@ const Layout = ({ children }) => {
       text: {
         primary: darkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
       },
-      action: {
-        input: darkMode ? "hsl(0, 0%, 52%)" : "hsl(0, 0%, 52%)",
-      },
     },
     typography: {
       fontFamily: '"Nunito Sans", serif',
       fontWeightLight: 300,
       fontWeightMedium: 600,
       fontWeightBold: 800,
+    },
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            backgroundColor: darkMode
+              ? "hsl(209, 23%, 22%)"
+              : "hsl(0, 0%, 100%)",
+            borderRadius: "4px",
+            "& .MuiInputBase-root": {
+              color: darkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
+            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none",
+            },
+          },
+        },
+      },
     },
   });
 
@@ -50,7 +65,13 @@ const Layout = ({ children }) => {
             : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
         }}
       >
-        <Toolbar sx={{ width: { xs: "80%", sm: "90%", md: "80%" }, padding: "20px 0", margin: "auto" }}>
+        <Toolbar
+          sx={{
+            width: { xs: "80%", sm: "88%" },
+            padding: "20px 0",
+            margin: "auto",
+          }}
+        >
           <Typography
             variant="h6"
             sx={{
@@ -87,7 +108,12 @@ const Layout = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Box
-        sx={{ minHeight: "100vh", width: { xs: "100%", sm: "90%", md: "90%" }, margin: "auto", padding: { xs: 4, sm: 4, md: 4 }}}
+        sx={{
+          minHeight: "100vh",
+          width: { xs: "100%", sm: "90%" },
+          margin: "auto",
+          padding: { xs: 4, sm: 4, md: 4 },
+        }}
       >
         {children}
       </Box>

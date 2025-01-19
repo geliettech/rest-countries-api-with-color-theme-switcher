@@ -30,6 +30,8 @@ const Home = () => {
       .get("https://restcountries.com/v2/all")
       .then((response) => {
         setCountries(response.data);
+        
+        setError(false);
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
@@ -39,7 +41,6 @@ const Home = () => {
       })
       .finally(() => {
         setLoading(false);
-        setError(false);
       });
   }, []);
 
