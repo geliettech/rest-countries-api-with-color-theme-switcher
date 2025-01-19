@@ -48,7 +48,6 @@ const CountryDetails = () => {
         <Button
           component={Link}
           to="/"
-          variant="contained"
           color="inherit"
           sx={{ marginTop: 4, marginBottom: 7 }}
         >
