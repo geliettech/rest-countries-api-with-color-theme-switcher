@@ -48,10 +48,30 @@ const CountryDetails = () => {
         <Button
           component={Link}
           to="/"
-          color="inherit"
-          sx={{ marginTop: 4, marginBottom: 7 }}
-        >
-          <FaArrowLeftLong /> back
+          sx={(theme) => ({
+            marginTop: 4,
+            marginBottom: 7,
+            boxShadow: theme.palette.mode === "dark"
+              ? "0px 0px 5px hsl(0, 0%, 100%, 0.2)"
+              : "0px 0px 5px hsl(209, 23%, 22%, 0.2)",
+            padding: "8px 28px",
+            color: theme.palette.text.primary,
+            backgroundColor: theme.palette.background.paper,
+            '&:hover': {
+              backgroundColor: theme.palette.action.hover,
+            },
+          })} >
+          <FaArrowLeftLong />  <Typography
+              component="span"
+              sx={(theme) => ({
+                marginLeft: "4px",
+                textTransform: "capitalize",
+                fontSize: { xs: "12px", sm: "14px" },
+                color: theme.palette.text.primary,
+              })}
+            >
+            back
+            </Typography>
         </Button>
         {/* Show error message if there is an error */}
         {error && (
