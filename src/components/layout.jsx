@@ -87,6 +87,9 @@ const Layout = ({ children, layoutClassName }) => {
               color: theme.palette.text.primary,
               display: "flex",
               alignItems: "center",
+              '&:hover': {
+              backgroundColor: theme.palette.action.hover,
+            },
             }}
           >
             {darkMode ? <BsMoonFill /> : <BsMoon />}

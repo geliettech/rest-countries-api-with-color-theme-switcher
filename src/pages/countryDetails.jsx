@@ -49,10 +49,10 @@ const CountryDetails = () => {
           component={Link}
           to="/"
           sx={(theme) => ({
-            marginTop: 4,
-            marginBottom: 7,
+            mt: 3,
+            mb: 8,
               boxShadow: theme.boxShadow,
-            padding: "8px 28px",
+            padding: "6px 28px",
             color: theme.palette.text.primary,
             backgroundColor: theme.palette.background.paper,
             '&:hover': {
@@ -62,7 +62,7 @@ const CountryDetails = () => {
           <FaArrowLeftLong />  <Typography
               component="span"
               sx={(theme) => ({
-                marginLeft: "4px",
+                marginLeft: "6px",
                 textTransform: "capitalize",
                 fontSize: { xs: "12px", sm: "14px" },
                 color: theme.palette.text.primary,
@@ -101,35 +101,35 @@ const CountryDetails = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <Typography>
-                    <strong>Native Name:</strong> {country.nativeName}
+                    <strong>Native Name: </strong>{country.nativeName}
                   </Typography>
                   <Typography>
-                    <strong>Population:</strong>{" "}
+                    <strong>Population: </strong>
                     {country.population.toLocaleString()}
                   </Typography>
                   <Typography>
-                    <strong>Region:</strong> {country.region}
+                    <strong>Region: </strong>{country.region}
                   </Typography>
                   <Typography>
-                    <strong>Sub Region:</strong> {country.subregion}
+                    <strong>Sub Region: </strong>{country.subregion}
                   </Typography>
                   <Typography>
-                    <strong>Capital:</strong> {country.capital}
+                    <strong>Capital: </strong>{country.capital}
                   </Typography>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                   <Typography>
-                    <strong>Top Level Domain:</strong> {country.topLevelDomain}
+                    <strong>Top Level Domain: </strong>{country.topLevelDomain}
                   </Typography>
                   <Typography>
-                    <strong>Currencies:</strong>{" "}
+                    <strong>Currencies: </strong>
                     {country.currencies
                       .map((currency) => currency.name)
                       .join(", ")}
                   </Typography>
                   <Typography>
-                    <strong>Languages:</strong>{" "}
+                    <strong>Languages: </strong>
                     {country.languages
                       .map((language) => language.name)
                       .join(", ")}
@@ -139,20 +139,22 @@ const CountryDetails = () => {
 
               {/* Border Countries Section */}
               <Box mt={4}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom >
                   Border Countries:
                 </Typography>
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
                   {borderCountries.length > 0 ? (
                     borderCountries.map((borderCountry) => (
                       <Button
                         component={Link}
                         to={`/country/${borderCountry.numericCode}`}
                         key={borderCountry.alpha3Code}
-                        variant="outlined"
-                        sx={{
+                        sx={(theme) => ({
                           textTransform: "none",
-                        }}
+                          color: theme.palette.text.primary,
+                          backgroundColor: theme.palette.background.paper,
+                          boxShadow: theme.boxShadow,
+                        })}
                       >
                         {borderCountry.name}
                       </Button>
