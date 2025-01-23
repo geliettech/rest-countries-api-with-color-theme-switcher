@@ -71,7 +71,7 @@ const Home = () => {
         >
           {/* Search Input */}
           <TextField
-            search
+            search="true"
             variant="outlined"
             placeholder="Search for a country..."
             fullWidth
@@ -142,7 +142,7 @@ const Home = () => {
                     <Typography
                       variant="body2"
                       sx={{ mb: 0.5 }}
-                      className={styles.country_details}
+                      className={styles.country_detail}
                     >
                       <strong>Population: </strong>
                       <span>{country.population.toLocaleString()}</span>
@@ -150,7 +150,7 @@ const Home = () => {
                     <Typography
                       variant="body2"
                       sx={{ mb: 0.5 }}
-                      className={styles.country_details}
+                      className={styles.country_detail}
                     >
                       <strong>Region: </strong>
                       <span>{country.region}</span>
@@ -158,7 +158,7 @@ const Home = () => {
                     <Typography
                       variant="body2"
                       sx={{ mb: 0.5 }}
-                      className={styles.country_details}
+                      className={styles.country_detail}
                     >
                       <strong>Capital: </strong>
                       <span>{country.capital}</span>

@@ -34,8 +34,8 @@ const Layout = ({ children, layoutClassName }) => {
       fontWeightLight: 300,
       fontWeightMedium: 600,
       fontWeightBold: 800,
-      fontSizeHome: "14px",
-      fontSizeDetail: "16px",
+      fontSizeSmall: "14px",
+      fontSizeMedium: "16px",
     },
     boxShadow: darkMode
       ? "hsl(0, 0%, 100%, 0.1)"

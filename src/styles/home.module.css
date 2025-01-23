@@ -29,9 +29,9 @@
   text-decoration: none;
   color: inherit;
 }
-.country_details strong {
+.country_detail strong {
   font-weight: 600;
 }
-.country_details span {
+.country_detail span {
   font-weight: 300;
 }
