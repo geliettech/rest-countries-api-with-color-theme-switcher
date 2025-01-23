@@ -29,8 +29,9 @@ const Home = () => {
     axios
       .get("https://restcountries.com/v2/all")
       .then((response) => {
-        setCountries(response.data);
         setError(false);
+        setCountries(response.data);
+        // setError(false);
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);

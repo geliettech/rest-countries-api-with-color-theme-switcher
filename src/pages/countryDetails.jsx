@@ -51,7 +51,7 @@ const CountryDetails = () => {
 
   return (
     <Layout layoutClassName={styles.countryDetails}>
-      <Button
+      {/* <Button
         component={Link}
         to="/"
         sx={(theme) => ({
@@ -65,54 +65,68 @@ const CountryDetails = () => {
             backgroundColor: theme.palette.action.hover,
           },
         })}
-      >
+      > */}
+         <Button>
         <FaArrowLeftLong />
-        <Typography
+        <Typography>
+        {/* <Typography
           component="span"
           sx={{
             marginLeft: "6px",
             textTransform: "capitalize",
             fontSize: { xs: "12px", sm: "14px" },
           }}
-        >
+        > */}
           back
         </Typography>
       </Button>
-
       {error && (
-        <Alert severity="error" sx={{ mb: 3 }}>
+        // <Alert severity="error" sx={{ mb: 3 }}>
+        <Alert severity="error">
           {error}
         </Alert>
       )}
-
       {loading ? (
         <CircularIndeterminate />
       ) : (
         country && (
-          <Grid container spacing={4}>
+          <Grid container spacing={4} alignItems="center">
+          {/* <Grid container alignItems="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}> */}
             {/* Flag Section */}
-            <Grid item sx={{ height: 400 }} xs={12} md={6}>
-              <CardMedia
+             {/* <Grid item sx={{ height: 400 }} xs={12} md={6}> */}
+             <Grid item xs={12} md={6}>
+              {/* <CardMedia
                 component="img"
                 image={country.flags.svg}
                 alt={`${country.name} flag`}
                 sx={{ height: "100%", objectFit: "contain" }}
+              /> */}
+              <CardMedia
+                component="img"
+                image={country.flags.svg}
+                alt={`${country.name} flag`}
               />
-            </Grid>
+            </Grid> 
 
             {/* Country Details Section */}
+            {/* <Grid item xs={12} md={6}> */}
             <Grid item xs={12} md={6}>
-              <Typography variant="h4" sx={{ fontWeight: 800 }} gutterBottom>
+              {/* <Typography variant="h4" sx={{ fontWeight: 800 }} gutterBottom> */}
+              <Typography variant="h4" gutterBottom>
                 {country.name}
               </Typography>
 
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Typography className={styles.country_details}>
+              {/* <Grid container spacing={2}> */}
+              <Grid container>
+                {/* <Grid item xs={12} sm={6}> */}
+                <Grid>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Native Name: </strong>
                     <span>{country.nativeName || "N/A"}</span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Population: </strong>
                     <span>
                       {country.population
@@ -120,22 +134,26 @@ const CountryDetails = () => {
                         : "N/A"}
                     </span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Region: </strong>
                     <span>{country.region || "N/A"}</span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Sub Region: </strong>
                     <span>{country.subregion || "N/A"}</span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Capital: </strong>
                     <span>{country.capital || "N/A"}</span>
                   </Typography>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Top Level Domain: </strong>
                     <span>
                       {country.topLevelDomain
@@ -143,7 +161,8 @@ const CountryDetails = () => {
                         : "N/A"}
                     </span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Currencies: </strong>
                     <span>
                       {country.currencies
@@ -153,7 +172,8 @@ const CountryDetails = () => {
                         : "N/A"}
                     </span>
                   </Typography>
-                  <Typography className={styles.country_details}>
+                  {/* <Typography className={styles.country_details}> */}
+                  <Typography>
                     <strong>Languages: </strong>
                     <span>
                       {country.languages
@@ -164,10 +184,10 @@ const CountryDetails = () => {
                     </span>
                   </Typography>
                 </Grid>
-              </Grid>
+              </Grid> 
 
               {/* Border Countries Section */}
-              <Box
+              {/* <Box
                 mt={4}
                 className={styles.country_details}
                 sx={{
@@ -176,29 +196,33 @@ const CountryDetails = () => {
                   alignItems: "center",
                   gap: 2,
                 }}
-              >
-                <Typography
+              > */}
+              <Box>
+                {/* <Typography
                   variant="h6"
                   sx={{ fontWeight: 600, fontSize: "16px" }}
-                >
+                > */}
+                 <Typography variant="h6">
                   Border Countries:
                 </Typography>
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                {/* <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}> */}
+                <Box>
                   {borderCountries.length > 0 ? (
                     borderCountries.map((borderCountry) => (
-                      <Button
-                        component={Link}
-                        to={`/country/${borderCountry.numericCode}`}
-                        key={borderCountry.alpha3Code}
-                        sx={(theme) => ({
-                          textTransform: "none",
-                          color: theme.palette.text.primary,
-                          backgroundColor: theme.palette.background.paper,
-                          boxShadow: theme.boxShadow,
-                          fontWeight: theme.typography.fontWeightLight,
-                          fontSize: theme.typography.fontSizeMedium,
-                        })}
-                      >
+                      // <Button
+                      //   component={Link}
+                      //   to={`/country/${borderCountry.numericCode}`}
+                      //   key={borderCountry.alpha3Code}
+                      //   sx={(theme) => ({
+                      //     textTransform: "none",
+                      //     color: theme.palette.text.primary,
+                      //     backgroundColor: theme.palette.background.paper,
+                      //     boxShadow: theme.boxShadow,
+                      //     fontWeight: theme.typography.fontWeightLight,
+                      //     fontSize: theme.typography.fontSizeMedium,
+                      //   })}
+                      // >
+                      <Button  component={Link} to={`/country/${borderCountry.numericCode}`} key={borderCountry.alpha3Code}>
                         {borderCountry.name}
                       </Button>
                     ))
@@ -207,7 +231,7 @@ const CountryDetails = () => {
                   )}
                 </Box>
               </Box>
-            </Grid>
+            </Grid> 
           </Grid>
         )
       )}
