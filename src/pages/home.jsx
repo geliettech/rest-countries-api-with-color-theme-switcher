@@ -137,7 +137,13 @@ const Home = () => {
                     title={country.name}
                   />
                   <CardContent sx={{ padding: 2 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={(theme) => ({
+                        fontWeight: theme.typography.fontWeightBold,
+                        mb: 1,
+                      })}
+                    >
                       {country.name}
                     </Typography>
                     <Typography
