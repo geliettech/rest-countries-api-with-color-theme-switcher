@@ -1,56 +1,66 @@
+// Import necessary modules and components
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Layout from "../components/layout";
-import { CardMedia, Box, Button, Typography, Grid, Alert } from "@mui/material";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import axios from "axios";
-import CircularIndeterminate from "../components/loader";
-import styles from "../styles/countryDetails.module.css";
+import { Link, useParams } from "react-router-dom"; // For routing and parameter extraction
+import Layout from "../components/layout"; // Custom layout component
+import { CardMedia, Box, Button, Typography, Grid, Alert } from "@mui/material"; // Material UI components
+import { FaArrowLeftLong } from "react-icons/fa6"; // Left arrow icon from react-icons
+import axios from "axios"; // HTTP request library
+import CircularIndeterminate from "../components/loader"; // Custom loading spinner component
+import styles from "../styles/countryDetails.module.css"; // Custom CSS module for styling
 
+// CountryDetails component function
 const CountryDetails = () => {
+  // Extract numericCode parameter from the URL
   const { numericCode } = useParams();
-  const [country, setCountry] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [borderCountries, setBorderCountries] = useState([]);
-  const [error, setError] = useState(false);
 
+  // State variables to store data and loading/error states
+  const [country, setCountry] = useState(null); // Country data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [borderCountries, setBorderCountries] = useState([]); // List of border countries
+  const [error, setError] = useState(false); // Error state
+
+  // useEffect hook to fetch data on component mount or numericCode change
   useEffect(() => {
+    // Fetch country data from the API
     axios
-      .get("https://restcountries.com/v2/all")
+      .get("https://restcountries.com/v2/all") // Fetch all countries data
       .then((response) => {
+        // Find the country matching the numericCode
         const countryData = response.data.find(
           (c) => c.numericCode === numericCode
         );
 
+        // If country data is found
         if (countryData) {
-          setError(false);
-          setCountry(countryData);
+          setError(false); // Reset error
+          setCountry(countryData); // Set country data
 
-          // Fetch border countries
+          // If the country has borders, fetch the details of border countries
           if (countryData.borders) {
             const borderData = countryData.borders
               .map((borderCode) =>
                 response.data.find((c) => c.alpha3Code === borderCode)
               )
-              .filter((c) => c); // Filter out undefined values
-            setBorderCountries(borderData);
+              .filter((c) => c); // Remove undefined values
+            setBorderCountries(borderData); // Set border countries
           }
-          // setError(false);
         } else {
-          throw new Error("Country not found");
+          throw new Error("Country not found"); // Handle case where country is not found
         }
       })
       .catch((err) => {
-        console.error("Error fetching country details:", err);
-        setError(`Failed to fetch country details. Please try again later.`);
+        console.error("Error fetching country details:", err); // Log error
+        setError(`Failed to fetch country details. Please try again later.`); // Set error message
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); // Set loading to false after data fetch is complete
       });
-  }, [numericCode]);
+  }, [numericCode]); // Dependency array ensures this runs when numericCode changes
 
+  // Render component JSX
   return (
     <Layout layoutClassName={styles.countryDetails}>
+      {/* Back button to navigate to the homepage */}
       <Button
         component={Link}
         to="/"
@@ -79,14 +89,19 @@ const CountryDetails = () => {
           back
         </Typography>
       </Button>
+
+      {/* Display error message if error state is true */}
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
           {error}
         </Alert>
       )}
+
+      {/* If loading is true, show loading spinner */}
       {loading ? (
         <CircularIndeterminate />
       ) : (
+        // If data is fetched successfully, display country details
         country && (
           <Grid
             container
@@ -119,11 +134,12 @@ const CountryDetails = () => {
                 })}
                 gutterBottom
               >
-                {country.name}
+                {country.name} {/* Display country name */}
               </Typography>
 
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
+                  {/* Display various country details */}
                   <Typography className={styles.country_details}>
                     <strong>Native Name: </strong>
                     <span>{country.nativeName || "N/A"}</span>
@@ -151,6 +167,7 @@ const CountryDetails = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
+                  {/* Display other country details */}
                   <Typography className={styles.country_details}>
                     <strong>Top Level Domain: </strong>
                     <span>
@@ -197,8 +214,7 @@ const CountryDetails = () => {
                   sx={(theme) => ({
                     fontWeight: theme.typography.fontWeightMedium,
                     fontSize: theme.typography.fontSizeMedium,
-                  })}
-                >
+                  })}>
                   Border Countries:
                 </Typography>
                 <Box
@@ -208,6 +224,7 @@ const CountryDetails = () => {
                     gap: 2,
                   }}
                 >
+                  {/* If there are border countries, display them */}
                   {borderCountries.length > 0 ? (
                     borderCountries.map((borderCountry) => (
                       <Button
@@ -228,6 +245,7 @@ const CountryDetails = () => {
                       </Button>
                     ))
                   ) : (
+                    // If no border countries, display a disabled button
                     <Button disabled>None</Button>
                   )}
                 </Box>
@@ -240,4 +258,4 @@ const CountryDetails = () => {
   );
 };
 
-export default CountryDetails;
+export default CountryDetails; // Export the component
