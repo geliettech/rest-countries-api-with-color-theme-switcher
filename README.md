@@ -48,11 +48,11 @@ Users should be able to:
 
 ### Tech Stack
 
-- **React** – JavaScript library for building user interfaces  
-- **Material-UI (MUI)** – For reusable UI components and theming  
-- **Axios** – For making HTTP requests to the REST Countries API  
-- **React Router DOM** – For dynamic routing between pages  
-- **CSS Grid & Flexbox** – For responsive layouts  
+- **React** – JavaScript library for building user interfaces
+- **Material-UI (MUI)** – For reusable UI components and theming
+- **Axios** – For making HTTP requests to the REST Countries API
+- **React Router DOM** – For dynamic routing between pages
+- **CSS Grid & Flexbox** – For responsive layouts
 - **React Icons** – For consistent and scalable icon usage
 
 ---
@@ -69,9 +69,21 @@ This project helped me strengthen my knowledge in:
 Example code snippet:
 
 ```js
-const toggleTheme = () => {
-  setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-};
+const theme = createTheme({
+  palette: {
+    mode: darkMode ? "dark" : "light", // Set MUI's color mode
+    background: {
+      default: darkMode ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
+      paper: darkMode ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)",
+    },
+    text: {
+      primary: darkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)",
+    },
+    action: {
+      input: darkMode ? "hsl(0, 0%, 52%)" : "hsl(0, 0%, 52%)",
+    },
+  },
+});
 ```
 
 ---
@@ -79,7 +91,6 @@ const toggleTheme = () => {
 ### Future Improvements
 
 - Improve accessibility (ARIA roles, keyboard navigation)
-- Add loading skeletons for better UX during data fetch
 - Implement unit and integration testing
 - Use Context API or Redux for improved state management
 
@@ -95,8 +106,8 @@ const toggleTheme = () => {
 
 ## 👩‍💻 Author
 
-- Frontend Mentor – [@oge-dev](https://www.frontendmentor.io/profile/oge-dev)  
-- GitHub – [@oge-dev](https://github.com/oge-dev)  
+- Frontend Mentor – [@oge-dev](https://www.frontendmentor.io/profile/oge-dev)
+- GitHub – [@oge-dev](https://github.com/oge-dev)
 - Twitter – [@oge_dev](https://twitter.com/oge_dev)
 
 ---
@@ -104,7 +115,3 @@ const toggleTheme = () => {
 ## 🙏 Acknowledgments
 
 Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing high-quality challenges that simulate real-world frontend development tasks. Special appreciation to the open-source community and documentation maintainers whose resources guided this build.
-
----
-
-Let me know if you’d like a version with badges or contribution guidelines!
