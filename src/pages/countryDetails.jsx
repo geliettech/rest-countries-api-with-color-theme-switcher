@@ -186,9 +186,9 @@ const CountryDetails = () => {
               <Box
                 sx={{
                   display: "flex",
-                  flexWrap: "wrap",
+                  flexWrap: { xs: "wrap", sm: "wrap", md: "nowrap" },
                   alignItems: "center",
-                  gap: 2,
+                  gap: 1,
                   mt: 4,
                 }}
               >
@@ -204,7 +204,7 @@ const CountryDetails = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    flexWrap: { xs: "wrap", sm: "nowrap", md: "nowrap" },
+                    flexWrap: { xs: "wrap", sm: "wrap", md: "wrap" },
                     gap: 2,
                   }}
                 >
@@ -221,7 +221,7 @@ const CountryDetails = () => {
                           fontWeight: theme.typography.fontWeightLight,
                           textTransform: "none",
                           borderRadius: "2px",
-                          padding: "2px 8px",
+                          padding: "2px 10px",
                         })}
                       >
                         {borderCountry.name}

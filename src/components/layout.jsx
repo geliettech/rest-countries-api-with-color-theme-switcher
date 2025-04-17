@@ -1,7 +1,10 @@
+// Import React and necessary components
 import React from "react";
 import Footer from "./footer";
-import { useDarkMode } from "./DarkModeContext";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useDarkMode } from "./DarkModeContext"; // Custom hook for dark mode state
+import { ThemeProvider, createTheme } from "@mui/material/styles"; // MUI theming
+
+// Import MUI components
 import {
   AppBar,
   Button,
@@ -10,14 +13,19 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+
+// Import moon icons from react-icons
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 
+// Layout component accepts children and an optional layoutClassName prop
 const Layout = ({ children, layoutClassName }) => {
+  // Destructure dark mode state and toggle function from context
   const { darkMode, toggleDarkMode } = useDarkMode();
 
+  // Define custom MUI theme based on darkMode value
   const theme = createTheme({
     palette: {
-      mode: darkMode ? "dark" : "light",
+      mode: darkMode ? "dark" : "light", // Set MUI's color mode
       background: {
         default: darkMode ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
         paper: darkMode ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)",
@@ -40,22 +48,27 @@ const Layout = ({ children, layoutClassName }) => {
     boxShadow: darkMode
       ? "hsl(0, 0%, 100%, 0.1)"
       : "0px 0px 5px hsl(209, 23%, 22%, 0.1)",
-      components: {
-        MuiOutlinedInput: {
-          styleOverrides: {
-            root: {
-              "& .MuiOutlinedInput-notchedOutline": {
-                border: "none", // Removes the border globally for all outlined text fields
-              },
+
+    // Component-level overrides
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none", // Remove outline borders on inputs
             },
           },
         },
       },
+    },
   });
 
   return (
+    // Wrap app in ThemeProvider to apply custom theme
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline /> {/* Normalize base CSS for consistent styling */}
+
+      {/* AppBar header */}
       <AppBar
         position="static"
         sx={{
@@ -71,6 +84,7 @@ const Layout = ({ children, layoutClassName }) => {
             margin: "auto",
           }}
         >
+          {/* App title */}
           <Typography
             variant="h6"
             sx={{
@@ -81,6 +95,8 @@ const Layout = ({ children, layoutClassName }) => {
           >
             Where in the world?
           </Typography>
+
+          {/* Dark mode toggle button */}
           <Button
             onClick={toggleDarkMode}
             sx={{
@@ -88,10 +104,11 @@ const Layout = ({ children, layoutClassName }) => {
               display: "flex",
               alignItems: "center",
               '&:hover': {
-              backgroundColor: theme.palette.action.hover,
-            },
+                backgroundColor: theme.palette.action.hover,
+              },
             }}
           >
+            {/* Icon switches depending on mode */}
             {darkMode ? <BsMoonFill /> : <BsMoon />}
             <Typography
               sx={{
@@ -106,6 +123,8 @@ const Layout = ({ children, layoutClassName }) => {
           </Button>
         </Toolbar>
       </AppBar>
+
+      {/* Main content area */}
       <Box
         sx={{
           minHeight: "100vh",
@@ -115,8 +134,10 @@ const Layout = ({ children, layoutClassName }) => {
         }}
         className={layoutClassName}
       >
-        {children}
+        {children} {/* Render any children passed to the Layout */}
       </Box>
+
+      {/* Footer at the bottom */}
       <Footer />
     </ThemeProvider>
   );

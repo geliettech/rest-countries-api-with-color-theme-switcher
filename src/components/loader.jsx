@@ -1,7 +1,7 @@
 // Import the React library to use components and hooks
 import * as React from "react";
 
-// Import components
+// Import components from MUI
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -17,7 +17,7 @@ export default function CircularIndeterminate() {
         height: "60vh", 
       }}
     >
-      {/* Display a loading spinner with custom color and size */}
+       {/* Display a loading spinner with custom color and size */}
       <CircularProgress color="hsl(0, 0%, 100%)" size="3rem" />
     </Box>
   );
