@@ -1,92 +1,110 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# 🌍 REST Countries API with Color Theme Switcher
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the [REST Countries API with Color Theme Switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This challenge offered a great opportunity to practice working with APIs, dynamic routing, and implementing a dark/light theme toggle in a React application.
 
-## Table of contents
+---
+
+## 📋 Table of Contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+  - [Live Links](#live-links)
+- [Development Process](#development-process)
+  - [Tech Stack](#tech-stack)
+  - [Key Learnings](#key-learnings)
+  - [Future Improvements](#future-improvements)
+  - [Resources](#resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
+---
 
-## Overview
+## 🔎 Overview
 
-### The challenge
+### The Challenge
 
 Users should be able to:
 
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
+- View all countries from the REST API on the homepage
+- Search for a country by name
 - Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
+- Click on a country to view more detailed information on a separate page
+- Navigate to border countries from the country details page
+- Toggle between light and dark themes (optional feature)
 
 ### Screenshot
 
-![](./src/design/desktop-preview.jpg)
+![Desktop Preview](./src/design/desktop-preview.jpg)
 
-### Links
+### Live Links
 
-- Solution URL: [github.com/oge-dev/rest-countries-api-with-color-theme-switcher](https://github.com/oge-dev/rest-countries-api-with-color-theme-switcher)
-- Live Site URL: [rest-countries-api-with-color-theme-switcher-byoge.vercel.app](https://rest-countries-api-with-color-theme-switcher-byoge.vercel.app/)
+- 💻 **GitHub Repository**: [github.com/oge-dev/rest-countries-api-with-color-theme-switcher](https://github.com/oge-dev/rest-countries-api-with-color-theme-switcher)
+- 🌐 **Live Demo**: [rest-countries-api-with-color-theme-switcher-byoge.vercel.app](https://rest-countries-api-with-color-theme-switcher-byoge.vercel.app/)
 
-## My process
+---
 
-### Built with
+## 🛠 Development Process
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+### Tech Stack
 
+- **React** – JavaScript library for building user interfaces  
+- **Material-UI (MUI)** – For reusable UI components and theming  
+- **Axios** – For making HTTP requests to the REST Countries API  
+- **React Router DOM** – For dynamic routing between pages  
+- **CSS Grid & Flexbox** – For responsive layouts  
+- **React Icons** – For consistent and scalable icon usage
 
-### What I learned
+---
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+### Key Learnings
 
-To see how you can add code snippets, see below:
+This project helped me strengthen my knowledge in:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+- Building dynamic, single-page applications with React and routing
+- Using Axios for data fetching and managing loading/error states
+- Implementing dark/light theme toggles using Material-UI
+- Organizing components efficiently and managing application state
+
+Example code snippet:
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const toggleTheme = () => {
+  setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+};
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+---
 
-### Continued development
+### Future Improvements
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- Improve accessibility (ARIA roles, keyboard navigation)
+- Add loading skeletons for better UX during data fetch
+- Implement unit and integration testing
+- Use Context API or Redux for improved state management
 
+---
 
-### Useful resources
+### Resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Material UI Documentation](https://mui.com/) – For theming and reusable components
+- [React Router](https://reactrouter.com/) – For handling routing and navigation
+- [REST Countries API](https://restcountries.com/) – Official API source for country data
 
-## Author
+---
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+## 👩‍💻 Author
+
+- Frontend Mentor – [@oge-dev](https://www.frontendmentor.io/profile/oge-dev)  
+- GitHub – [@oge-dev](https://github.com/oge-dev)  
+- Twitter – [@oge_dev](https://twitter.com/oge_dev)
+
+---
+
+## 🙏 Acknowledgments
+
+Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing high-quality challenges that simulate real-world frontend development tasks. Special appreciation to the open-source community and documentation maintainers whose resources guided this build.
+
+---
+
+Let me know if you’d like a version with badges or contribution guidelines!
