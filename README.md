@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github.com/oge-dev/rest-countries-api-with-color-theme-switcher](https://github.com/oge-dev/rest-countries-api-with-color-theme-switcher)
+- Live Site URL: [rest-countries-api-with-color-theme-switcher-byoge.vercel.app](https://rest-countries-api-with-color-theme-switcher-byoge.vercel.app/)
 
 ## My process
 
