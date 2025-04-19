@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop Preview](https://raw.github.com/oge-dev/rest-countries-api-with-color-theme-switcher/main/src/design/desktop-preview.jpg)
+![Desktop Preview](https://github.com/oge-dev/rest-countries-api-with-color-theme-switcher/blob/main/src/design/desktop-preview.jpg)
 
 
 ### Live Links
