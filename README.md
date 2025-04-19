@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./src/design/desktop-preview.jpg)
+![Desktop Preview](./src/design/desktop-preview.jpg)
 
 ### Live Links
 
