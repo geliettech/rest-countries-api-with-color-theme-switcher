@@ -1,6 +1,6 @@
 # 🌍 REST Countries API with Color Theme Switcher
 
-This is my solution to the [REST Countries API with Color Theme Switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This challenge offered a great opportunity to practice working with APIs, dynamic routing, and implementing a dark/light theme toggle in a React application.
+A responsive, theme-switchable country information app powered by the REST Countries API. Built with React and Material-UI, this project showcases API integration, dynamic routing, and a dark/light mode toggle. solution to the [REST Countries API with Color Theme Switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). This challenge offered a great opportunity to practice working with APIs, dynamic routing, and implementing a dark/light theme toggle in a React application.
 
 ---
 
@@ -15,6 +15,7 @@ This is my solution to the [REST Countries API with Color Theme Switcher challen
   - [Key Learnings](#key-learnings)
   - [Future Improvements](#future-improvements)
   - [Resources](#resources)
+- [Getting Started](#getting-started)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -33,9 +34,11 @@ Users should be able to:
 - Navigate to border countries from the country details page
 - Toggle between light and dark themes (optional feature)
 
+
 ### Screenshot
 
-![Desktop Preview](./src/design/desktop-preview.jpg)
+![Desktop Preview](https://raw.github.com/oge-dev/rest-countries-api-with-color-theme-switcher/main/src/design/desktop-preview.jpg)
+
 
 ### Live Links
 
@@ -61,10 +64,10 @@ Users should be able to:
 
 This project helped me strengthen my knowledge in:
 
-- Building dynamic, single-page applications with React and routing
-- Using Axios for data fetching and managing loading/error states
-- Implementing dark/light theme toggles using Material-UI
-- Organizing components efficiently and managing application state
+- 🔄 Building dynamic SPAs with React and routing
+- 📡 Fetching data with Axios and managing API states
+- 🌗 Implementing a dark/light mode toggle using MUI’s `createTheme`
+- 🧩 Organizing components and managing application state efficientl
 
 Example code snippet:
 
@@ -90,9 +93,11 @@ const theme = createTheme({
 
 ### Future Improvements
 
-- Improve accessibility (ARIA roles, keyboard navigation)
-- Implement unit and integration testing
-- Use Context API or Redux for improved state management
+♿ Improve accessibility (ARIA roles, keyboard navigation)
+🧪 Add unit and integration tests
+⚛ Use Context API or Redux for scalable state management
+📷 Optimize images and assets for better performance
+💾 Consider offline support using service workers
 
 ---
 
@@ -103,6 +108,30 @@ const theme = createTheme({
 - [REST Countries API](https://restcountries.com/) – Official API source for country data
 
 ---
+## 🚀 Getting Started
+To run this project locally:
+
+Clone the repository:
+```bash
+git clone https://github.com/oge-dev/rest-countries-api-with-color-theme-switcher.git
+```
+
+Navigate to the project folder:
+```bash
+cd rest-countries-api-with-color-theme-switcher
+```
+
+Install dependencies:
+```bash
+npm install
+```
+
+Start the development server:
+```bash
+npm start
+```
+
+The app will open on [http://localhost:3000](http://localhost:3000)
 
 ## 👩‍💻 Author
 
@@ -113,5 +142,4 @@ const theme = createTheme({
 ---
 
 ## 🙏 Acknowledgments
-
-Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing high-quality challenges that simulate real-world frontend development tasks. Special appreciation to the open-source community and documentation maintainers whose resources guided this build.
+Thanks to  [Frontend Mentor](https://www.frontendmentor.io/)  for providing engaging, real-world development challenges. Special appreciation to the open-source community and documentation writers who make building awesome projects easier every day.
