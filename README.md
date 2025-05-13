@@ -135,9 +135,9 @@ The app will open on [http://localhost:3000](http://localhost:3000)
 
 ## 👩‍💻 Author
 
-- Frontend Mentor – [@oge-dev](https://www.frontendmentor.io/profile/oge-dev)
-- GitHub – [@oge-dev](https://github.com/oge-dev)
-- Twitter – [@oge_dev](https://twitter.com/oge_dev)
+- Frontend Mentor – [@geliettech](https://www.frontendmentor.io/profile/geliettech)
+- GitHub – [@geliettech](https://github.com/geliettech)
+- Twitter – [@geliettech](https://twitter.com/geliettech)
 
 ---
 
