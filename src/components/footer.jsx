@@ -23,7 +23,7 @@ const Footer = () => {
         . Coded by{" "}
         {/* Link to your Frontend Mentor profile */}
         <a
-          href="https://www.frontendmentor.io/profile/oge-dev"
+          href="https://www.frontendmentor.io/profile/geliettech"
           target="_blank"
           rel="noopener noreferrer"
         >
